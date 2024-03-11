@@ -81,6 +81,29 @@ numbers_tuple = tuple(numbers_list)
 print("Sorted list:", numbers_list)
 print("Sorted tuple:", numbers_tuple)
 
+"""5.
+Extend the previous Python program to demonstrate the manipulation of lists using the append(), insert(), and remove() functions, and to emphasize the immutability of tuples.
+
+  a. Input: Ask the user to enter a series of space-separated integers.
+
+  b. Convert Input: Convert the input string into a list of integers and a tuple of integers.
+  
+  c. Manipulate List: Use the append(), insert(), and remove() functions to modify the list.
+  
+  d. Attempt to Modify Tuple: Try to modify the tuple using the same operations as the list.
+  
+  e. Print Output: Print the modified list and attempt to print the modified tuple.
+
+  example:
+  ```
+  Enter a series of space-separated integers: 5 2 8 1 9
+
+  Tuples are immutable and cannot be modified.
+  Modified list: [5, 2, 20, 1, 9, 10]
+  Tuple remains unchanged: (5, 2, 8, 1, 9)
+  ```
+"""
+
 # Input
 input_numbers = input("Enter a series of space-separated integers: ")
 
@@ -110,7 +133,6 @@ except AttributeError:
 # Print Output
 print("Modified list:", numbers_list)
 print("Tuple remains unchanged:", numbers_tuple)
-
 
 """--------------------------------------------------------------------------------
 1. **Set**:
