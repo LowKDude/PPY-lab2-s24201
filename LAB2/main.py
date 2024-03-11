@@ -28,7 +28,7 @@ Write a Python program that takes input from the user to create a list of intege
 """
 
 # Input
-input_numbers = input("Enter a series of space-separated integers: ")
+input_numbers = input("Enter a series of space-separated integers:")
 
 # Convert Input
 numbers_list = list(map(int, input_numbers.split()))
