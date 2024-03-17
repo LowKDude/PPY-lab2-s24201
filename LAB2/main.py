@@ -497,6 +497,62 @@ These are fundamental constructs in Python programming that enable you to contro
   The program will generate the list of prime numbers up to 20, perform calculations, and write the results to 'prime_numbers.txt'.
 """
 
+# Read the largest integer from 'output.txt'
+try:
+    with open("output.txt", "r") as file:
+        content = file.read()
+        largest_integer = int(content.split(":")[-1].strip())
+except FileNotFoundError:
+    print("Error: 'output.txt' file not found.")
+    exit(1)
+except ValueError:
+    print("Error: Unable to extract the largest integer from 'output.txt'.")
+    exit(1)
+
+# Function to check if a number is prime
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+# Generate list of prime numbers up to the largest integer
+prime_numbers = [num for num in range(2, largest_integer + 1) if is_prime(num)]
+
+# Calculate sum of prime numbers
+sum_prime_numbers = sum(prime_numbers)
+
+# Determine largest and smallest prime numbers
+largest_prime = max(prime_numbers)
+smallest_prime = min(prime_numbers)
+
+# Check if the largest integer itself is prime
+is_largest_prime = is_prime(largest_integer)
+
+# Write results to 'prime_numbers.txt'
+with open("prime_numbers.txt", "w") as file:
+    file.write("List of Prime Numbers:\n")
+    for prime in prime_numbers:
+        file.write(str(prime) + "\n")
+    file.write("\nSum of Prime Numbers: " + str(sum_prime_numbers) + "\n")
+    file.write("Largest Prime Number: " + str(largest_prime) + "\n")
+    file.write("Smallest Prime Number: " + str(smallest_prime) + "\n")
+    file.write("Is Largest Integer Prime: " + str(is_largest_prime) + "\n")
+
+# Print the list of prime numbers
+print("List of Prime Numbers:", prime_numbers)
+print("Sum of Prime Numbers:", sum_prime_numbers)
+print("Largest Prime Number:", largest_prime)
+print("Smallest Prime Number:", smallest_prime)
+print("Is Largest Integer Prime:", is_largest_prime)
 
 
 """10.
